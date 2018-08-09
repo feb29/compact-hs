@@ -1,7 +1,7 @@
 name:                compact-hs
 version:             0.1.0.0
-github:              "feb29/compact-hs"
 license:             BSD3
+github:              "feb29/compact-hs"
 author:              "Kohei Watanabe"
 maintainer:          "xbeef29@gmail.com"
 copyright:           "2018 Kohei Watanabe"

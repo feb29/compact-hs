@@ -2,7 +2,7 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 9efa627a7ee74cd1ddac20433afa91157ebb366b217420460036dad6c6cdec31
+-- hash: b66997fe97c023bdf0dc0f7e7399be7e9aa4cc7722f553ac3e9ca259398a0f3a
 
 name:           compact-hs
 version:        0.1.0.0
@@ -26,7 +26,11 @@ source-repository head
 
 library
   exposed-modules:
-      Lib
+      Data.Compact
+      Data.Compact.Class
+      Data.Compact.Class.Count
+      Data.Compact.Class.Rank
+      Data.Compact.Class.Select
   other-modules:
       Paths_compact_hs
   hs-source-dirs:
