@@ -17,10 +17,11 @@ extra-source-files:
 # To avoid duplicated efforts in documentation and dealing with the
 # complications of embedding Haddock markup inside cabal files, it is
 # common to point users to the README.md file.
-description:         Please see the README on GitHub at <https://github.com/feb29/compact-hs#readme>
+description: Please see the README on GitHub at <https://github.com/feb29/compact-hs#readme>
 
 dependencies:
-- base >= 4.7 && < 5
+- base   >= 4.7  && < 5
+- vector >= 0.12 && < 1
 
 library:
   source-dirs: src
@@ -46,3 +47,15 @@ tests:
     - -with-rtsopts=-N
     dependencies:
     - compact-hs
+
+benchmarks:
+  compact-hs-benchmark:
+    main:                Benchmark.hs
+    source-dirs:         bench
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - compact-hs
+    - criterion

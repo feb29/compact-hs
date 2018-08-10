@@ -7,34 +7,34 @@ module Data.Compact.Class.Select
     )
 where
 
-import           Data.Compact.Class.Count       ( Capacity(..)
+import           Data.Compact.Class.Count       ( Sized(..)
                                                 , Count0(..)
                                                 , Count1(..)
                                                 )
 import           Data.Compact.Class.Rank        ( Rank0(..)
                                                 , Rank1(..)
                                                 )
+
+
 class Select0 a where
     select0 :: a -> Int -> Maybe Int
-
-    default select0 :: (Capacity a, Rank0 a) => a -> Int -> Maybe Int
+    default select0 :: (Sized a, Rank0 a) => a -> Int -> Maybe Int
     select0 bv c
         | c >= count0 bv = Nothing
         | otherwise      = Just selected where
-        selected = search (capacity bv) (\j -> rank0 bv j >= c)
+        selected = search (size bv) (\j -> rank0 bv j >= c)
 
 
 class Select1 a where
     select1 :: a -> Int -> Maybe Int
-
-    default select1 :: (Capacity a, Rank1 a) => a -> Int -> Maybe Int
+    default select1 :: (Sized a, Rank1 a) => a -> Int -> Maybe Int
     select1 bv c
         | c >= count1 bv = Nothing
         | otherwise      = Just selected where
-        selected = search (capacity bv) (\j -> rank1 bv j >= c)
+        selected = search (size bv) (\j -> rank1 bv j >= c)
 
 
-search :: (Integral u, Ord u) => u -> (u -> Bool) -> u
+search :: Int -> (Int -> Bool) -> Int
 search end fun = search' 0 end
   where
     search' !i !j | i < j  = i

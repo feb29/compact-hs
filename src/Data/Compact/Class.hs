@@ -1,9 +1,11 @@
 module Data.Compact.Class
-    ( module X
+    ( module Data.Compact.Class.Count
+    , module Data.Compact.Class.Rank
+    , module Data.Compact.Class.Select
     )
 where
 
-import qualified Data.Compact.Class.Count      as X
-import qualified Data.Compact.Class.Rank       as X
-import qualified Data.Compact.Class.Select     as X
+import           Data.Compact.Class.Count
+import           Data.Compact.Class.Rank
+import           Data.Compact.Class.Select
 
